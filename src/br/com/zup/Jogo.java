@@ -25,7 +25,7 @@ public class Jogo {
      *
      * @return um array com as opções escolhidas pela máquina, para a classe do sistema poder avisar para o jogador
      */
-    public List<Opcao> joga() {
+    public List <Opcao> jogar() {
         List<Opcao> opcoes = nivel.sortearOpcoes();
         atualizarPontuacao(opcoes);
         return opcoes;
@@ -68,12 +68,12 @@ public class Jogo {
      * @param opcoes a lista de opções escolhida
      */
     public void atualizarPontuacao(List<Opcao> opcoes) {
+        for (Opcao opcao : opcoes) {
+            pontuacao += opcao.getQuantidadeDePontos();
+        }
+
         if (opcoesSaoIguais(opcoes)) {
-            pontuacao *= 100;
-        } else {
-            for (Opcao opcao : opcoes) {
-                pontuacao += opcao.getQuantidadeDePontos();
-            }
+            pontuacao += pontuacao * 100;
         }
     }
 
