@@ -5,6 +5,7 @@ package br.com.zup;
  *
  */
 public enum Opcao {
+    TOMATE(5),
     BANANA(10),
     MORANGO(20),
     ESTRELA(40);
