@@ -6,7 +6,7 @@ import java.util.*;
  * Representa um nível de jogo com suas possibilidades.
  *
  */
-public class Nivel {
+public abstract class Nivel {
     private List <Opcao> possibilidades;
     private Random sorteador;
 
