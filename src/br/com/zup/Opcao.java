@@ -8,7 +8,7 @@ public enum Opcao {
     BANANA(10),
     MORANGO(20),
     ESTRELA(40);
-    public int quantidadeDePontos;
+    private int quantidadeDePontos;
 
     /**
      * Constrói uma opção com a quantidade de pontos especificada.
