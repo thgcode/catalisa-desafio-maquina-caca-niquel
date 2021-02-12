@@ -41,13 +41,40 @@ public class Jogo {
     }
 
     /**
+     * Verifica se a lista de opções passada contém todos os valores iguais
+     *
+     * @param opcoes uma lista contendo as opções
+     * @return um booleano, se true as opções são iguais
+     */
+    public static boolean opcoesSaoIguais(List<Opcao> opcoes) {
+        if (opcoes.size() == 1) {
+            return false;
+        }
+
+        Opcao primeira = opcoes.get(0);
+
+        for (int i = 1; i < opcoes.size(); i++) {
+            if (!opcoes.get(i).equals(primeira)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * Atualiza a pontuação do jogador baseado nas opções escolhidas pela máquina
      *
      * @param opcoes a lista de opções escolhida
      */
     public void atualizarPontuacao(List<Opcao> opcoes) {
-        for (Opcao opcao : opcoes) {
-            pontuacao += opcao.getQuantidadeDePontos();
+        if (opcoesSaoIguais(opcoes)) {
+            pontuacao *= 100;
+        } else {
+            for (Opcao opcao : opcoes) {
+                pontuacao += opcao.getQuantidadeDePontos();
+            }
         }
     }
+
 }
