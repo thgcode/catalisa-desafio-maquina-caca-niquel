@@ -22,7 +22,7 @@ public enum Opcao {
     /**
      * Pega o valor da pontuação dessa opção
      *
-     * @return a pontuação que essa opção dá ao jogador
+     * @return um int com a pontuação que essa opção dá ao jogador
      */
     public int getQuantidadeDePontos() {
         return quantidadeDePontos;
