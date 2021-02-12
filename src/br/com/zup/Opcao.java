@@ -8,7 +8,8 @@ public enum Opcao {
     TOMATE(5),
     BANANA(10),
     MORANGO(20),
-    ESTRELA(40);
+    ESTRELA(40),
+    LARANJA(60);
     private int quantidadeDePontos;
 
     /**

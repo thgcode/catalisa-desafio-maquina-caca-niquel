@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Sistema {
     private static Scanner scanner = new Scanner(System.in);
-    private static Nivel []niveis = new Nivel []{new PrimeiroNivel(), new SegundoNivel()};
+    private static Nivel []niveis = new Nivel []{new PrimeiroNivel(), new SegundoNivel(), new TerceiroNivel()};
 
     private static Nivel escolherNivel() throws Exception {
         System.out.println("Caça níquel\nQual nível você quer jogar (de 1 a " + niveis.length + "?");
