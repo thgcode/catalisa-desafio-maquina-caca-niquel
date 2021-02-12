@@ -1,5 +1,7 @@
 package br.com.zup;
 
+import java.util.List;
+
 /**
  * Classe que armazena o estado do jogo atual, o nível de dificuldade e quantos pontos o jogador tem.
  *
@@ -23,9 +25,9 @@ public class Jogo {
      *
      * @return um array com as opções escolhidas pela máquina, para a classe do sistema poder avisar para o jogador
      */
-    public Opcao[] joga() {
-        opcoes = nivel.sorteia();
-        calculaPontuacao(opcoes);
+    public List <Opcao> joga() {
+        List <Opcao> opcoes = nivel.sortearOpcoes();
+        atualizarPontuacao(opcoes);
         return opcoes;
     }
 
@@ -38,4 +40,14 @@ public class Jogo {
         return pontuacao;
     }
 
+    /**
+     * Atualiza a pontuação do jogador baseado nas opções escolhidas pela máquina
+     *
+     * @param opcoes a lista de opções escolhida
+     */
+    public void atualizarPontuacao(List <Opcao> opcoes) {
+        for (Opcao opcao: opcoes) {
+            pontuacao += opcao.getQuantidadeDePontos();
+        }
+    }
 }
