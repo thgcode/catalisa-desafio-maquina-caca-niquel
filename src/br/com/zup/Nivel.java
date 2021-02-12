@@ -9,15 +9,18 @@ import java.util.*;
 public abstract class Nivel {
     private List <Opcao> possibilidades;
     private Random sorteador;
+    private int quantidadeDeValores;
 
     /**
-     * Constroi o nível com as possibilidades especificadas.
+     * Constrói o nível com as possibilidades especificadas.
      *
      * @param possibilidades uma lista com as possibilidades que podem ser escolhidas pela máquina
+     * @param quantidadeDeValores um int contendo a quantidade de valores que serão gerados a cada rodada do jogo
      */
-    public Nivel(List <Opcao> possibilidades) {
+    public Nivel(List <Opcao> possibilidades, int quantidadeDeValores) {
         sorteador = new Random();
         this.possibilidades = possibilidades;
+        this.quantidadeDeValores = quantidadeDeValores;
     }
 
     /**
@@ -28,7 +31,7 @@ public abstract class Nivel {
     public List <Opcao> sortearOpcoes() {
         List <Opcao> opcoesEscolhidas = new ArrayList <>();
 
-        for (int i = 0; i < possibilidades.size(); i ++) {
+        for (int i = 0; i < quantidadeDeValores; i ++) {
             Opcao opcao = possibilidades.get(sorteador.nextInt(possibilidades.size()));
             opcoesEscolhidas.add(opcao);
         }
@@ -36,7 +39,30 @@ public abstract class Nivel {
         return opcoesEscolhidas;
     }
 
+    /**
+     * Pega a lista de possibilidades
+     *
+     * @return uma lista com todas as possibilidades de opções
+     */
     public List <Opcao> getPossibilidades() {
         return possibilidades;
+    }
+
+    /**
+     * Pega a quantidade de valores que serão gerados
+     *
+     * @return um int com a quantidade de valores
+     */
+    public int getQuantidadeDeValores() {
+        return quantidadeDeValores;
+    }
+
+    /**
+     * Configura a quantidade de valores do nível
+     *
+     * @param novaQuantidade um int com a nova quantidade de valores
+     */
+    public void setQuantidadeDeValores(int novaQuantidade) {
+        quantidadeDeValores = novaQuantidade;
     }
 }

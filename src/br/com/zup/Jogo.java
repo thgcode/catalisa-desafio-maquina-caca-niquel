@@ -46,12 +46,8 @@ public class Jogo {
      * @param opcoes a lista de opções escolhida
      */
     public void atualizarPontuacao(List<Opcao> opcoes) {
-        if (opcoesSaoIguais(opcoes)) {
-            pontuacao *= 100;
-        } else {
-            for (Opcao opcao : opcoes) {
-                pontuacao += opcao.getQuantidadeDePontos();
-            }
+        for (Opcao opcao : opcoes) {
+            pontuacao += opcao.getQuantidadeDePontos();
         }
     }
 }

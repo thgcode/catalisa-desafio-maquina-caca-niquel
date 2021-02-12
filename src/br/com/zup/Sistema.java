@@ -17,6 +17,13 @@ public class Sistema {
         }
     }
 
+    private static void configurarDificuldade(Nivel nivel) {
+        System.out.println("Quantos valores devem ser gerados para este nível? (O padrão do nível é " + nivel.getQuantidadeDeValores());
+        int novaQuantidade = Integer.parseInt(scanner.nextLine());
+
+        nivel.setQuantidadeDeValores(novaQuantidade);
+    }
+
     private static void jogar(Nivel nivel) {
         Jogo jogo = new Jogo(nivel);
 
@@ -41,6 +48,7 @@ public class Sistema {
     public static void executarSistema() {
         try {
             Nivel nivel = escolheNivel();
+            configurarDificuldade(nivel);
             jogar(nivel);
         } catch (Exception exc) {
             System.out.println(exc.getMessage());
